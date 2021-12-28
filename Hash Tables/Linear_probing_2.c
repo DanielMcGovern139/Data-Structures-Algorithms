@@ -6,7 +6,6 @@
 #include <ctype.h>  
 
 
-
 #define MAX_STRING_SIZE 20 //max length of a string
 #define ARRAY_SIZE 59  //best be prime..size of the hash table 
 int collisions =0;
