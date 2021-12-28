@@ -30,7 +30,7 @@ void swap(int *xp, int *yp)
     *yp = temp;
 }
 
-
+//
 int partition(struct games list[], int start, int end){
 
     struct games temp;
@@ -204,4 +204,4 @@ return 1;
 
 
 
-//task4.exe task4text.txt
+
