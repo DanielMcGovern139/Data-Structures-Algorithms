@@ -1,5 +1,7 @@
 //Hash table to store the frequency of names in an unordered list of irish surnames using char arrays as keys and storing integers as values.
-//implemenented using linear probing to help reduce collisions
+//implemenented using linear probing to help reduce collisions.  Also allows the user to search for information in the hash table and get the name and 
+//frequency(how many times the name appeared in the list) as a result.
+
 
 #include<stdio.h>
 #include<stdlib.h>
