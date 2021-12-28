@@ -3,42 +3,7 @@
 //a graph which models the public transport system of Dublin City.  Then, using Dijkstra’s algorithm on the graph, prints the
 //optimal sequence of bus stops from a given source to a given destination.
 
-#include<stdio.h>
-#include<stdlib.h>
-#include <string.h> //for strcpy and strcmp
-#include <ctype.h>  //for isalnum
-#include <limits.h>
-#include <stdbool.h>
 
-
-#define MAX_STRING_SIZE 80 //max length of a string
-#define MAX_VERTICES 7668 // max vertices in graph
-
-typedef struct bus_stop {
-int stop_id, latitude, longitude;
-char name[MAX_STRING_SIZE];
-}bus_stop;
-
-typedef struct Graph{
-    int V;
-    int matrix[MAX_VERTICES][MAX_VERTICES];
-    int from, to, weight;
-
-}Graph;
-
-bus_stop* array[MAX_VERTICES];
-Graph* g;
-
-Graph* create_graph(int num_nodes);
-void add_edge(Graph *g, int from, int to, int weight); // adds an undirected weighted edge between from and to
-int load_edges ( char *fname ); //loads the edges from the CSV file of name fname
-int load_vertices ( char *fname );  //loads the vertices from the CSV file of name fname
-void dijkstra(int origin, int destination); 
-void shortest_path(int startNode, int endNode); // prints the shortest path between startNode and endNode, if there is any
-void free_memory ( void ) ; // frees any memory that was used
-
-int minDistance(int dist[], bool sptSet[]);
-void printSolution(int dist[], int prev[], int v, int origin, int dest);
 
 // The CSV parser
 int
@@ -77,9 +42,6 @@ fetch_vertices(FILE *csv, bus_stop *p) {
     next_field( csv, buf, MAX_STRING_SIZE );
     p->longitude = atof(buf); 
     
-
-
-     
 }
 void
 fetch_edges (FILE *csv, Graph *p) {
@@ -93,9 +55,6 @@ fetch_edges (FILE *csv, Graph *p) {
 
     next_field( csv, buf, MAX_STRING_SIZE );
     p->weight = atoi(buf);
-
-
-     
 }
 
 Graph* create_graph(int num_nodes){
@@ -285,28 +244,4 @@ void printSolution(int dist[], int prev[], int v, int origin, int dest){
 }
  
 
- int main ( int argc, char *argv[] ) {
-
-	load_vertices("vertices.csv");
-  load_edges("edges.csv");
-  
-	int startingNode = 300, endingNode = 253; 
-   
-
-    /*get the start and end point
-    printf("Please enter stating bus stop >\t\t");
-    int startingNode;
-    scanf("%d", &startingNode);
-    printf("Please enter destination bus stop >\t");
-    int endingNode;
-    scanf("%d", &endingNode); 
-    */
-
-	shortest_path(startingNode, endingNode);
-    
-
-	free_memory();
-
-	
-}
-
+ 
