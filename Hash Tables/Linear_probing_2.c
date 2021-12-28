@@ -1,3 +1,5 @@
+//linear probing using a better hash function
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h> 
