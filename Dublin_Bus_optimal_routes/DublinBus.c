@@ -3,7 +3,8 @@
 //a graph which models the public transport system of Dublin City.  Then, using Dijkstra’s algorithm on the graph, prints the
 //optimal sequence of bus stops from a given source to a given destination.
 
-
+int minDistance(int dist[], bool sptSet[]);
+void printSolution(int dist[], int prev[], int v, int origin, int dest);
 
 // The CSV parser
 int
